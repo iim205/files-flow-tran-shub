@@ -49,10 +49,10 @@ jobs:
         with:
           project_name: devops
           branch: ${{ github.event.repository.name }}
-          base_uri: https://sng.ast.checkmarx.net  # This should be replaced by your base uri for Checkmarx One
-          cx_client_id: ${{ secrets.CXCLIENTID }} # This should be created within your Checkmarx One account : https://checkmarx.com/resource/documents/en/34965-118315-authentication-for-checkmarx-one-cli.html#UUID-a4e31a96-1f36-6293-e95a-97b4b9189060_UUID-4123a2ff-32d0-2287-8dd2-3c36947f675e
-          cx_client_secret: ${{ secrets.CXSECRET }} # This should be created within your Checkmarx One account : https://checkmarx.com/resource/documents/en/34965-118315-authentication-for-checkmarx-one-cli.html#UUID-a4e31a96-1f36-6293-e95a-97b4b9189060_UUID-4123a2ff-32d0-2287-8dd2-3c36947f675e
-          cx_tenant: mssp-gss-moda # This should be replaced by your tenant for Checkmarx One
+          base_uri: ${{ secrets.CXURI }}  
+          cx_client_id: ${{ secrets.CXCLIENTID }} 
+          cx_client_secret: ${{ secrets.CXSECRET }} 
+          cx_tenant: ${{ secrets.CXTENANT }} 
           additional_params: --report-format sarif --output-path .
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3

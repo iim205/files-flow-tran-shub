@@ -53,8 +53,7 @@ jobs:
           cx_client_id: ${{ secrets.CXCLIENTID }} 
           cx_client_secret: ${{ secrets.CXSECRET }} 
           cx_tenant: ${{ secrets.CXTENANT }} 
-          scan-types: sast
-          additional_params: --report-format sarif --output-path .
+          additional_params: --scan-types sast --sca-exploitable-path true --sast-preset-name "OWASP TOP 10 - 2021" --sast-incremental  --report-format sarif --output-path .
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3
         with:
